@@ -1,12 +1,13 @@
 
 public class Position {
-    private final int y,x;
-    
-    public Position(int x,int y){
-        this.x=x;
-        this.y=y;
-    }
-    public Position(Position i){
+	private final int x, y;
+	
+	public Position(int x, int y) {
+		this.x=x;
+		this.y=y;
+	}
+	
+	public Position(Position i){
         this(i.x, i.y);
     }
     public Position add(Direction d){
@@ -17,15 +18,15 @@ public class Position {
         Position temp = new Position(x-dx, y-dy);
         return temp;
     }
-    public boolean equals(Object o){
-        if (this == o)
+	public boolean equals(Object o) {
+		if (this == o)
             return true;
         if(o ==null)
             return false;
         if (this.getClass()!=o.getClass()){
             return false;
-        }
-        Position p = (Position) o;
+		}
+		Position p = (Position) o;
         if((p.x==this.x)&&(p.y==this.y)){
             return true;
         }
@@ -33,10 +34,10 @@ public class Position {
             return false;
         }
     }
-    public int getX() {
-        return x;
-    }
-    public int getY() {
-        return y;
-    }
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
 }

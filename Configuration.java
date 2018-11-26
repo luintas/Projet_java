@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
-public class Configuration{
-    private ArrayList<Caisse> caisses;
+public class Configuration {
+	
+	private ArrayList<Caisse> caisses;
     private Joueur joueur;
-    private Niveau niveau;
-
+	private Niveau niveau;
+	
     public Configuration(Niveau n,Position positionJoueur){
         this.caisses = new ArrayList<Caisse>();
         this.niveau = n;
@@ -12,21 +13,47 @@ public class Configuration{
     }
     public Configuration(Configuration c){
         this(c.getNiveau, c.getJoueur().getPosition());
+	public int getX() {
+		return niveau.getY();
+	}
+	public int getY() {
+		return niveau.getX();
+	}
+	public boolean addCaisse(Position p) {
+		for(Caisse c : caisses) {
+			if(p.equals(c.getPosition())) {
+				return false;
+			}
+		}
+		if(niveau.estVide(p)) {
+			caisses.add(new Caisse(this, p));
+			return true;
+		}
+		return false;
+	}
+	public boolean estCaisse(Position p) {
+		for(Caisse c : caisses) {
+			if(p.equals(c.getPosition())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public boolean estVide(Position p) {
+		for(Caisse c : caisses) {
+			if(p.equals(c.getPosition())) {
+				return false;
+			}
+		}
+		if(niveau.estVide(p)) {
+			return true;
+		}
+		return false;
     }
-    public Niveau getNiveau() {
-        return niveau;
+    public boolean estCible(Position p){
+        return niveau.estCible(p);
     }
-    public ArrayList<Caisse> getCaisses() {
-        return caisses;
-    }
-    public Joueur getJoueur() {
-        return joueur;
-    }
-    public boolean addCaisse(Position p){
-        Caisse c= new caisse(this,p);
-        caisses.add(c);
-    }
-    public Element get(Position p){
+	public Element get(Position p){
         if(joueur.getPosition().equals(p)){
             return this.joueur;
         }
@@ -38,15 +65,15 @@ public class Configuration{
         }
         return this.niveau.get(p);
     }
-    public boolean estVide(Position p){
-        return niveau.estVide(p);
-    }
-    public boolean estCible(Position p){
-        return niveau.estCible(p);
-    }
-    public boolean bougerJoueurVers(Direction d){
-        if(estVide(){
+	public boolean bougerJoueurVers(Direction d) {
+		if(estVide(){
             if(estCible(p))
         }
-    }
+	}
+	public boolean victoire() {
+		
+	}
+	public String toString() {
+		
+	}
 }
