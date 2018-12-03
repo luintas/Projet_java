@@ -11,10 +11,11 @@ public class Niveau {
 		this.cibles = new ArrayList<Position>();
 	}
 	public int getX(){
-        tab.length();
+		return grille.length;
+		
     }
     public int getY(){
-        tab[0].length();
+        return grille[0].length;
     }
 	public boolean addCible(Position p) {
 		for(Position p1 : cibles) {
@@ -22,8 +23,8 @@ public class Niveau {
 				return false;
 			}
 		}
-		if((this.estVide(e))&&(!this.estCible(e))){
-            cible.add(e);
+		if((this.estVide(p))&&(!this.estCible(p))){
+            cibles.add(p);
             return true;
         }
         else

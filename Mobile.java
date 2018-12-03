@@ -4,7 +4,7 @@ public abstract class Mobile extends Element {
 	private Position p1;
 	protected Configuration configuration;
 	
-	public Mobile(Position p2, Configuration config, Type type) {
+	public Mobile(Type type,Position p2, Configuration config) {
 		super(type);
 		p1 = p2;
 		configuration = config;

@@ -12,12 +12,13 @@ public class Configuration {
         this.joueur = new Joueur(this,positionJoueur);
     }
     public Configuration(Configuration c){
-        this(c.getNiveau, c.getJoueur().getPosition());
+		this(c.niveau, c.joueur.getPosition());
+	}
 	public int getX() {
-		return niveau.getY();
+		return niveau.getX();
 	}
 	public int getY() {
-		return niveau.getX();
+		return niveau.getY();
 	}
 	public boolean addCaisse(Position p) {
 		for(Caisse c : caisses) {
@@ -30,6 +31,15 @@ public class Configuration {
 			return true;
 		}
 		return false;
+	}
+	public Joueur getJoueur() {
+		return joueur;
+	}
+	public Niveau getNiveau() {
+		return niveau;
+	}
+	public ArrayList<Caisse> getCaisses() {
+		return caisses;
 	}
 	public boolean estCaisse(Position p) {
 		for(Caisse c : caisses) {
@@ -66,14 +76,15 @@ public class Configuration {
         return this.niveau.get(p);
     }
 	public boolean bougerJoueurVers(Direction d) {
-		if(estVide(){
+		/*if(estVide()){
             if(estCible(p))
-        }
+		}*/
+		return true;
 	}
 	public boolean victoire() {
-		
+		return true;
 	}
 	public String toString() {
-		
+		return "";
 	}
 }

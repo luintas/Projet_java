@@ -4,16 +4,20 @@ public class Joueur extends Mobile{
 	private ArrayList<Direction> histo = new ArrayList<Direction>();
 	
 	public Joueur(Configuration c,Position p) {
-		super(p,c,Type.JOUEUR);
+		super(Type.JOUEUR,p,c);
 	}
 	
-	/*public Joueur(Configuration c,Joueur j) {
-		super(c,j.getPosition(),Type.JOUEUR);
-	}*/
+	public Joueur(Configuration c,Joueur j) {
+		super(Type.JOUEUR,j.getPosition(),c);
+	}
 	
 	public ArrayList<Direction> getHisto() {
 		return histo;
 	}
+	public int getNbCoups(){
+		return histo.size();
+	}
+	//A modifier
 	public boolean bougerVers(Direction d) {
 		if(super.configuration.estVide(getPosition().add(d))){
 			

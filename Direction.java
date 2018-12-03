@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class Direction {
 	
-	private int dx, dy;
-	public Direction HAUT = new Direction(0,-1);
-	public Direction BAS = new Direction(0,1);
-	public Direction DROITE = new Direction(1,0);
-	public Direction GAUCHE = new Direction(-1,0);
+	private final int dx, dy;
+	public static Direction HAUT = new Direction(0,-1);
+	public static Direction BAS = new Direction(0,1);
+	public static Direction DROITE = new Direction(1,0);
+	public static Direction GAUCHE = new Direction(-1,0);
 	private ArrayList<Direction> DIRECTION = new ArrayList<Direction>();
 	
 	public Direction( int dx, int dy) {

@@ -11,11 +11,11 @@ public class Position {
         this(i.x, i.y);
     }
     public Position add(Direction d){
-        Position temp = new Position(x+dx, y+dy);
+        Position temp = new Position(x+d.getDx(), y+d.getDy());
         return temp;
     }
     public Position sub(Direction d){
-        Position temp = new Position(x-dx, y-dy);
+        Position temp = new Position(x-d.getDx(), y-d.getDy());
         return temp;
     }
 	public boolean equals(Object o) {
