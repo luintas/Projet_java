@@ -13,6 +13,7 @@ public class Configuration {
     }
     public Configuration(Configuration c){
 		this(c.niveau, c.joueur.getPosition());
+		this.caisses=c.caisses;
 	}
 	public int getX() {
 		return niveau.getX();

@@ -9,6 +9,11 @@ public class Niveau {
 	public Niveau(int x, int y) {
 		grille = new Immobile[x][y];
 		this.cibles = new ArrayList<Position>();
+		for(y=0;y<this.getY();y++){
+			for(x=0;x<this.getX();x++){
+				grille[x][y]= new Case();
+			}
+		}
 	}
 	public int getX(){
 		return grille.length;
@@ -31,7 +36,7 @@ public class Niveau {
         return false;
 	}
 	public boolean estVide(Position p) {
-		if(grille[p.getX()][p.getY()]==null) {
+		if(grille[p.getX()][p.getY()].getType()==Type.CASE) {
 			return true;
 		}
 		return false;
@@ -45,9 +50,10 @@ public class Niveau {
 		return false;
 	}
 	public boolean addMur(Position p) {
-		if(grille[p.getX()][p.getY()]!=null) {
+		if(grille[p.getX()][p.getY()].getType()!=Type.CASE) {
 			return false;
-		}else {
+		}
+		else {
 			grille[p.getX()][p.getY()]=new Mur();
 			return true;
 		}
@@ -56,5 +62,24 @@ public class Niveau {
 	
 	public Element get(Position p){
 		return grille[p.getX()][p.getY()];
+	}
+	public String toString(){
+		int x,y;
+		String s="";
+		for(y=0;y<this.getY();y++){
+			for(x=0;x<this.getX();x++){
+				if(grille[x][y]==null){
+					s+= "-";
+				}
+				else if (grille[x][y].getType()== Type.MUR){
+					s+="M";
+				}
+				else if (grille[x][y].getType()==Type.CASE){
+					s+="C";
+				}
+			}
+			s+="\n";
+		}
+		return s;
 	}
 }

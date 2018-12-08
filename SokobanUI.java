@@ -21,7 +21,6 @@ public  class SokobanUI extends SimpleInterface {
 			for (int j=0;j<config.getNiveau().getY();j++){
 				drawCell(i, j, SPRITES[0]);
 				boolean cible = config.estCible(new Position(i,j));
-				System.out.println("("+i+","+j+")");
 				switch (config.get(new Position(i,j)).getType()) {
 				case JOUEUR:
 					drawCell(i,j,SPRITES[5]);
