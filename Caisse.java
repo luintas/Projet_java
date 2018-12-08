@@ -4,10 +4,11 @@ public class Caisse extends Mobile {
 		super(Type.CAISSE,p,c);
 	}
 	public boolean bougerVers(Direction d) {
-		if(super.configuration.estVide(getPosition().add(d))) {
+		Position p=getPosition().add(d);
+		if(super.configuration.estVide(p)) {
+			super.setPosition(p);
 			return true;
 		}
-		getPosition().sub(d);
 		return false;
 	}
 }

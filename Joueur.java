@@ -19,17 +19,19 @@ public class Joueur extends Mobile{
 	}
 	//A modifier
 	public boolean bougerVers(Direction d) {
-		if(super.configuration.estVide(getPosition().add(d))){
-			
+		Position p=getPosition().add(d);
+		if(super.configuration.estVide(p)){
+			super.setPosition(p);
 			return true;
 		}
-		getPosition().sub(d);
-		if(super.configuration.estCaisse(getPosition().add(d)) && super.configuration.estVide(getPosition().add(d).add(d))) {
-			
+		if(super.configuration.estCaisse(p)) {
+			if(super.configuration.get(p).bougerVers(d)){
+			super.setPosition(p);
 			return true;
+			}
+			else
+			return false;
 		}
-		getPosition().sub(d);
-		getPosition().sub(d);
 		return false;
 	}
 }

@@ -19,6 +19,7 @@ public class Sokoban {
 		Configuration sokoban = loadSokoban(EASY,2);
 		System.out.println(sokoban.getNiveau().toString());
 		jouer(sokoban);
+		System.out.println(sokoban.getNiveau().toString());
 		replay(sokoban,jouer(sokoban));
 		//SolverInterface solver = new Solver();
 		//replay(sokoban,resoudre(sokoban,solver));
