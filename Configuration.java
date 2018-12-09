@@ -70,22 +70,43 @@ public class Configuration {
         }
         int i;
         for(i=0;i<this.caisses.size();i++){
-            if(caisses.get(i).equals(p)){
+            if(caisses.get(i).getPosition().equals(p)){
                 return caisses.get(i);
             }
         }
         return this.niveau.get(p);
     }
 	public boolean bougerJoueurVers(Direction d) {
-		/*if(estVide()){
-            if(estCible(p))
-		}*/
-		return true;
+		return this.joueur.bougerVers(d);
 	}
 	public boolean victoire() {
+		int i;
+		for(i=0;i<this.caisses.size();i++){
+            if(!estCible(caisses.get(i).getPosition())){
+                return false;
+            }
+		}
 		return true;
 	}
 	public String toString() {
-		return "";
+		
+		char[][] tab=new char[getX()][getY()];
+		tab =niveau.toString(tab);
+		int i;
+		for(i=0;i<caisses.size();i++){
+			if(tab[caisses.get(i).getPosition().getX()][caisses.get(i).getPosition().getY()]=='.')
+				tab[caisses.get(i).getPosition().getX()][caisses.get(i).getPosition().getY()]='*';
+			else
+			tab[caisses.get(i).getPosition().getX()][caisses.get(i).getPosition().getY()]='$';
+		}
+		tab[joueur.getPosition().getX()][joueur.getPosition().getY()]='@';
+		String s="";
+		for(i=0;i<getY();i++){
+			for(int j=0;j<getX();j++){
+				s+=tab[j][i];
+			}
+			s+="\n";
+		}
+		return s;
 	}
 }

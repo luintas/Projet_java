@@ -82,4 +82,25 @@ public class Niveau {
 		}
 		return s;
 	}
+	public char[][] toString(char[][] tab ){
+		int x,y,i;
+		for(y=0;y<this.getY();y++){
+			for(x=0;x<this.getX();x++){
+				if(grille[x][y]==null){
+					tab[x][y]= '-';
+				}
+				else if (grille[x][y].getType()== Type.MUR){
+					tab[x][y]='M';
+				}
+				else if (grille[x][y].getType()==Type.CASE){
+					tab[x][y]='C';
+				}
+			}
+		}
+		for(i=0;i<cibles.size();i++){
+			tab[cibles.get(i).getX()][cibles.get(i).getY()]='.';
+		}
+		return tab;
+	}
+
 }

@@ -17,9 +17,7 @@ public class Sokoban {
 
 	public static void main (String[]args){
 		Configuration sokoban = loadSokoban(EASY,2);
-		System.out.println(sokoban.getNiveau().toString());
 		jouer(sokoban);
-		System.out.println(sokoban.getNiveau().toString());
 		replay(sokoban,jouer(sokoban));
 		//SolverInterface solver = new Solver();
 		//replay(sokoban,resoudre(sokoban,solver));
@@ -56,7 +54,7 @@ public class Sokoban {
 				}
 				if (d !=null)
 					sokoban.bougerJoueurVers(d);
-				sokoUI.show(sokoban);
+				sokoUI.show(sokoban);	
 				sokoUI.drawString("Touches : q,z,d,s,r,escape (gauche,haut,droite,bas,recommencer,sortir)", 0.1, 0.95,32, SokobanUI.BLACK);
 			}
 			sokoUI.endGame(sokoban);
